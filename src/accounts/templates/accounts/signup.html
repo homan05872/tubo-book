@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}アカウント作成{% endblock title %}
+
+{% block h1 %}アカウント作成{% endblock h1 %}
+
+{% block content %}
+
+
+<form method='POST' class="p-4 m-4 bg-light border border-success rounded">
+    {% csrf_token %}
+    <input type='text' class='form-control my-4' name='username' placeholder='ユーザー ID'>
+    <input type='password' class='form-control my-4' name='password1' placeholder='パスワード'>
+    <input type='password' class='form-control mt-4' name='password2' placeholder='パスワード確認用'>
+    <small class="mb-2 d-block text-start">パスワードは8文字以上で設定してください。</small>
+    {% if form.error %}
+    <span class="mb-2 samall text-danjer d-block text-start">利用できないユーザーIDやパスワードの可能性があります。入力内容を再度ご確認ください。</span>
+    {% endif %}
+    <button type='submit' class='btn btn-success m-2'>アカウント作成</button>
+</form>
+{% endblock content %}

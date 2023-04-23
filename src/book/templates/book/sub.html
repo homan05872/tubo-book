@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}書籍詳細{% endblock %}
+
+{% block title %}{{object.title}}{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="card mx-auto my-5 w-50" style="min-width:300px;">
+    <div class="card-body">
+      <h5 class="card-title">{{object.title}}</h5>
+      <p class="card-text">{{object.text}}</p>
+      <a href="{% url 'list-book' %}" class="btn btn-primary">一覧へ</a>
+      <a href="{% url 'review' object.pk %}" class="btn btn-primary">レビューする</a>
+      <a href="{% url 'update-book' object.pk %}" class="btn btn-primary">編集する</a>
+      <a href="{% url 'delete-book' object.pk %}" class="btn btn-primary">削除する</a>
+      <h5 class="card-title">{{object.category}}</h5>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock  %}
